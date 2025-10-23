@@ -1,0 +1,42 @@
+- Dataframe atribuído como 'hr' e relativamente pequeno - apenas 1.470 data points
+- Base para já ter sido tratada:
+-- Não há missing values
+-- Não há dados redundantes
+-- Não há erros de formatação
+
+- Utilizada a coluna 'EmployeeNumber' para o índice
+- 25 numéricas (excluindo o índice) e 9 categóricas, sendo uma categórica o objeto de estudo - 'Attrition'
+- 3 variáveis observadas com somente uma resposta cada:
+-- 'EmployeeCount', int
+-- 'StandardHours', int
+-- 'Over18', object
+--- Removidas ---
+
+- Dentre as variáveis numéricas, inicialmente 10 aparentam ter outliers matemáticos
+-- A real definição dos outliers só pode ocorrer após a eventual separação da base em Train, Val e Test
+-- Deve ser definido se faz sentido a remoção desses outliers (magnitude do impacto, etc.)
+
+- Alta correlação entre:
+-- 'JobLevel' e 'MonthlyIncome': 0.92
+-- 'JobLevel' e 'TotalWorkingYears': 0.73
+-- 'MonthlyIncome' e 'TotalWorkingYears': 0.71
+-- 'YearsAtCompany' e 'YearsInCurrentRole': 0.85
+-- 'YearsAtCompany' e 'YearsWithCurrManager': 0.84
+-- 'YearsInCurrentRole' e 'YearsWithCurrManager': 0.72
+--- Definir na etapa de Feature Selection quais variáveis são mais indicadas para permanecer/serem removidas
+
+- Não há muito o que fazer no Pré-Processamento, nem antes do split nem após
+- Pré Split:
+-- One Hot Encoding: 'Attrition', 'Gender', 'OverTime'
+-- MinMaxScaler - pode causar data leakage mínimo se os parâmetros não tiverem limite definido
+- Pós Split:
+-- Remoção de outliers, se entendido que sim
+
+
+----------------------
+Modelos não Supervisionados
+
+
+----------------------
+Feature Selection
+- 
